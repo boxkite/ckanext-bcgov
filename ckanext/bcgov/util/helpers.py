@@ -367,7 +367,7 @@ def get_edc_org(org_id):
 def get_orgs_form(field = None):
     """Designed to get available orgs for scheming fields as parameters cannot be defined in choices_helper functions"""
     orgs = []
-    for org in ckan.lib.helpers.organizations_available('view_dataset'):
+    for org in ckan.lib.helpers.organizations_available('create_dataset'):
         orgs.append({
             'value': org['id'],
             'label': org['display_name']
