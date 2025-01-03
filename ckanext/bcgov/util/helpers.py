@@ -375,7 +375,7 @@ def get_orgs_form(field = None):
     }
     all_orgs_data = (organization_or_group_list_related(context, data_dict))
 
-    orgs = [{'id': org['id'], 'display_name': org['display_name']} for org in all_orgs_data]
+    orgs = [{'value': org['id'], 'label': org['display_name']} for org in all_orgs_data]
 
     return orgs
 
