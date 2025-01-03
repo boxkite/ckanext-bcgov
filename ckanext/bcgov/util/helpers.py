@@ -17,7 +17,7 @@ from ckantoolkit import config
 import ckanext.bcgov
 from ckanext.bcgov.version import version
 from ckanext.bcgov.util.git import get_short_commit_id
-from ckanext.bcgov.logic.action import organization_or_group_list_related
+# from ckanext.bcgov.logic.action import organization_or_group_list_related
 
 NotFound = logic.NotFound
 get_action = logic.get_action
@@ -373,7 +373,7 @@ def get_orgs_form(field = None):
         'is_organization': True,
         'all_fields': True
     }
-    all_orgs_data = (organization_or_group_list_related(context, data_dict))
+    all_orgs_data = get_action('organization_or_group_list_related')(context, data_dict)
     log.info('all_orgs_data :')
     log.info(all_orgs_data)
 
