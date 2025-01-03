@@ -374,8 +374,12 @@ def get_orgs_form(field = None):
         'all_fields': True
     }
     all_orgs_data = (organization_or_group_list_related(context, data_dict))
+    log.info('all_orgs_data :')
+    log.info(all_orgs_data)
 
     orgs = [{'value': org['id'], 'label': org['display_name']} for org in all_orgs_data]
+    log.info('orgs :')
+    log.info(orgs)
 
     return orgs
 
