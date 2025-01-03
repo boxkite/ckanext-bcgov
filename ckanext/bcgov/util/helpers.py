@@ -370,8 +370,8 @@ def get_orgs_form(field = None):
     context = {'model': model, 'session': model.Session,
                'user': c.user, 'auth_user_obj': c.userobj}           
     data_dict = {
-        'is_organization': True,
-        'all_fields': True
+        'is_organization': 'True',
+        'all_fields': 'True'
     }
     all_orgs_data = get_action('organization_or_group_list_related')(context, data_dict)
     log.info('all_orgs_data :')
