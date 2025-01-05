@@ -471,6 +471,9 @@ def edc_package_update_bcgw(context, input_data_dict):
 @toolkit.chained_action
 def package_update(original_action, context, data_dict):
     log.debug('Updating package %s' % data_dict['name'])
+    log.debug('Original action: %s' % original_action)
+    log.debug('Context: %s' % context)
+    log.debug('Data_dict:  %s' % data_dict)
     # Set the package last modified date
     data_dict['record_last_modified'] = str(datetime.date.today())
 
