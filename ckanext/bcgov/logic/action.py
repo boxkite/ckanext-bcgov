@@ -495,16 +495,17 @@ def package_update(original_action, context, data_dict):
     Send state change notifications if required; Added by Khalegh Mamakani
     Using a thread to run the job in the background so that package_update will not wait for notifications sending.
     '''
-    old_data = get_action('package_show')(context, {'id': data_dict['id']})
-    old_state = old_data.get('publish_state')
+    # old_data = get_action('package_show')(context, {'id': data_dict['id']})
+    # old_state = old_data.get('publish_state')
 
-    dataset_url = config.get('ckan.site_url') + h.url_for('dataset.read', id=data_dict['id'])
-    import threading
+    # dataset_url = config.get('ckan.site_url') + h.url_for('dataset.read', id=data_dict['id'])
+    # import threading
 
-    notify_thread = threading.Thread(target=check_record_state, args=(
-        context, old_state, data_dict, g.site_title, g.site_url, dataset_url))
-    notify_thread.start()
 
+    # notify_thread = threading.Thread(target=check_record_state, args=(
+    #     context, old_state, data_dict, g.site_title, g.site_url, dataset_url))
+    # notify_thread.start()
+    log.debug('Calling original_action now?')
     return original_action(context, data_dict)
 
 
