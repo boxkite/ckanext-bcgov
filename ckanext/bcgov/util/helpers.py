@@ -367,8 +367,7 @@ def get_edc_org(org_id):
 
 def get_orgs_form(field = None):
     """Designed to get available orgs for scheming fields as parameters cannot be defined in choices_helper functions"""
-    context = {'model': model, 'session': model.Session,
-               'user': c.user, 'auth_user_obj': c.userobj}           
+    context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
     data_dict = {
         'is_organization': 'True',
         'all_fields': 'True'
