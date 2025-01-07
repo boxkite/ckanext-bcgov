@@ -708,8 +708,7 @@ def organization_or_group_list_related(context, data_dict):
                   g1.state = 'active' AND
                   g1.approval_status = 'approved';
         """)
-    #TODO: Find alternate way to remove hanging sessions, commenting this out temporarily to tets
-    # model.Session.remove()
+    model.Session.remove()
 
     # groups and oganizations are listed as groups in database
     all_groups = {}
