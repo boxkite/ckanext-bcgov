@@ -366,12 +366,13 @@ def get_edc_org(org_id):
 
 def get_orgs_form(field = None):
     """Designed to get available orgs for scheming fields as parameters cannot be defined in choices_helper functions"""
-    orgs = []
-    for org in ckan.lib.helpers.organizations_available('create_dataset'):
-        orgs.append({
-            'value': org['id'],
-            'label': org['display_name']
-        })
+    context = {'model': model, 'user': c.user, 'auth_user_obj': c.userobj}
+    data_dict = {
+        'is_organization': 'True',
+        'all_fields': 'True'
+    }
+    all_orgs_data = get_action('organization_or_group_list_related')(context, data_dict)
+    orgs = [{'value': org['id'], 'label': org['display_name']} for org in all_orgs_data]
     return orgs
 
 
