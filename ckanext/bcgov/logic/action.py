@@ -658,6 +658,7 @@ def organization_or_group_list_related(context, data_dict):
     :rtype: list of strings'''
 
     model = context["model"]
+    log.debug('SqlAlchemy_Version: %s' % sqlalchemy.__version__)
 
     is_organization = (data_dict.get('is_organization', 'false')).lower() == 'true'
     query_result = {}
@@ -708,7 +709,7 @@ def organization_or_group_list_related(context, data_dict):
                   g1.state = 'active' AND
                   g1.approval_status = 'approved';
         """)
-    model.Session.remove()
+    # model.Session.remove()
 
     # groups and oganizations are listed as groups in database
     all_groups = {}
