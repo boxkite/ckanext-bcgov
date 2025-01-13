@@ -527,8 +527,11 @@ def can_access_group(group_id):
 
 def convert_composite_fields_to_array(resource):
     compositeResourceFields = ['temporal_extent', 'details', 'preview_info', 'geographic_extent']
+    log.debug('Print resource data-/n %s', resource)
     for field in compositeResourceFields:
         if (field in resource) and isinstance(resource[field], str):
+            log.debug('%s is in resource', field)
+            log.debug('Print field data- %s', resource[field])
             try:
                 resource[field] = json.loads(resource[field])
             except:
